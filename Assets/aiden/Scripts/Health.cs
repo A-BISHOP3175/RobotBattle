@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthAndArmor : MonoBehaviour
@@ -25,19 +25,6 @@ public class HealthAndArmor : MonoBehaviour
         currentHealth = maxHealth;
         currentArmor = maxArmor;
         UpdateUI();
-    }
-
-    void OnCollisionEnter(Collision collision)
-    { 
-        if (collision.gameObject.CompareTag("ThrownArmor"))
-        {
-            int totalDamage = damageOnCollision + thrownArmorBonus;
-            Debug.Log("Hit by thrown armor! Total damage: " + totalDamage);
-            TakeDamage(totalDamage);
-
-            
-            Destroy(collision.gameObject);
-        }       
     }
 
     public void TakeDamage(int amount)
